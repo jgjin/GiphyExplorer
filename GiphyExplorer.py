@@ -29,7 +29,7 @@ class GiphyExplorer:
             generator.generate()
         with open(self.query + ".txt", "r") as results:
             self.lines = results.readlines()
-        self.controller = webbrowser.get("chromium-browser")
+        self.controller = webbrowser.get("firefox")
 
     def readBookmark(self):
         """Read or create bookmark,
@@ -60,11 +60,7 @@ class GiphyExplorer:
             self.imageNumber += 1
             self.recordBookmark()
             if self.timed:
-                response = raw_input("[w]ait for " + str(self.period) + "s/[n]ext image: ")
-                while response != "w" and response != "n":
-                    response = raw_input("Please enter \"w\" or \"n\": ")
-                if response == "w":
-                    time.sleep(self.period)
+	    	time.sleep(self.period)
             else:
                 response = raw_input("Continue? (y/n): ")
                 while response != "y" and response != "n":
